@@ -1,18 +1,49 @@
 require './question'
 require './player'
+require './game'
 
-jess = Player.new("Jess", 3)
+# ------------------------------- BUILDING GAME ----------------------- #
+
+
+
+
 brendon = Player.new("Brendon", 3)
+jess = Player.new("Jess", 3)
+player1 = Game.new(brendon)
+player2 = Game.new(jess)
 
-question = Question.new(jess, brendon)
 
 100.times do
-  if question.lose_game?
-    puts "Thanks for playing!"
+  if
+    player1.lose_game? || player2.lose_game?
+    p "------ GAME OVER ------"
     break
   end
-  question.playa1_ask_q
-  question.playa2_ask_q
-end
+
+  player1.ask
+  if player2.answer != player2.correctAnswer
+    player2.lose_life
+  end
+  # p "  #{@player1.name}: #{@player1.total_life}/3 vs #{@player2.name}: #{@player2.total_life}/3"
+  player2.ask
+  if player1.answer != player1.correctAnswer
+    player1.lose_life
+  end
+ end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
