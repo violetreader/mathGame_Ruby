@@ -1,13 +1,11 @@
 class Game
-  attr_reader :player
-  attr_reader :correctAnswer
-  attr_reader :answer
+  attr_reader :player, :correctAnswer, :answer
 
   def initialize(player)
     @player = player
     @amt = 1
-    @correctAnswer
-    @answer
+    @correctAnswer = nil
+    @answer = nil
   end
 
   def ask

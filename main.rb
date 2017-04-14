@@ -13,12 +13,8 @@ player1 = Game.new(brendon)
 player2 = Game.new(jess)
 
 
-100.times do
-  if
-    player1.lose_game? || player2.lose_game?
-    p "------ GAME OVER ------"
-    break
-  end
+# will loop so game is only over once a player loses all their lives
+loop do
 
   player1.ask
   if player2.answer != player2.correctAnswer
@@ -29,6 +25,12 @@ player2 = Game.new(jess)
   if player1.answer != player1.correctAnswer
     player1.lose_life
   end
+  if
+    player1.lose_game? || player2.lose_game?
+    p "------ GAME OVER ------"
+    break
+  end
+
  end
 
 
