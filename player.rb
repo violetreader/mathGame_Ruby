@@ -7,7 +7,6 @@ class Player
 
   def initialize(name, life)
     @name = name
-    @life = life
     @total_life = life
   end
 
